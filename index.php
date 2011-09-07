@@ -35,7 +35,7 @@
 <?php
 
 	if(isset($_GET['pg'])) {
-		if(!is_numeric($_GET['pg'])) { header("Location: http://neighbr.net/"); }
+		if(!is_numeric($_GET['pg'])) { header("Location: {$_SERVER['HTTP_HOST']}"); }
 		$pg = $_GET['pg'];
 	} else {
 		$pg = 1;
@@ -61,17 +61,17 @@
 	if($pg==1) {
 		$pages .= '<div class="pages">&laquo;</div><div class="pages">&lsaquo;</div>';
 	} else {
-		$pages .= "<div class=\"pages\"><a href=\"http://neighbr.net/\">&laquo;</a></div>";
+		$pages .= "<div class=\"pages\"><a href=\"http://yoursite.com/\">&laquo;</a></div>";
 		$prevpage=$pg-1;
-		$pages .= "<div class=\"pages\"><a href=\"http://neighbr.net/$prevpage\">&lsaquo;</a></div>";
+		$pages .= "<div class=\"pages\"><a href=\"http://yoursite.com/$prevpage\">&lsaquo;</a></div>";
 	}
 	$pages .= '<div class="pages">' . $pg . '</div>';
 	if($pg==$lastpage) {
 		$pages .= '<div class="pages">&rsaquo;</div><div class="pages">&raquo;</div>';
 	} else {
 		$nextpage = $pg+1;
-		$pages .= "<div class=\"pages\"><a href=\"http://neighbr.net/$nextpage\">&rsaquo;</a></div>";
-		$pages .= "<div class=\"pages\"><a href=\"http://neighbr.net/$lastpage\">&raquo;</a></div>";
+		$pages .= "<div class=\"pages\"><a href=\"http://yoursite.com/$nextpage\">&rsaquo;</a></div>";
+		$pages .= "<div class=\"pages\"><a href=\"http://yoursite.com/$lastpage\">&raquo;</a></div>";
 	}
 
 	$sql = "SELECT id, neighbr, type, source, title, note, timestamp FROM posts WHERE objectionable = 0 ORDER BY timestamp DESC" . $limit;
@@ -80,10 +80,10 @@
 	while($post = $db->grab($result)) {
 		$socialm  = "";
 		$socialm .= "<div style=\"text-align: right; margin-top: 10px;\">";
-		$socialm .= "<div style=\"margin-top: 5px;\"><a href=\"http://www.facebook.com/sharer.php?u=http://neighbr.net/view/" . $post['id'] . "/" . str_replace(' ', '-', trim($post['title'])) . "&t=" . $post['title'] . "\" title=\"Share on Facebook\" target=\"_blank\"><img src=\"./img/icons/facebook.png\" alt=\"Share on Facebook\" /></a></div>";
-		$socialm .= "<div style=\"margin-top: 5px;\"><a href=\"http://www.reddit.com/submit?url=http://neighbr.net/view/" . $post['id'] . "&title=" . $post['title'] . "\" title=\"Share on Reddit\" target=\"_blank\"><img src=\"./img/icons/reddit.png\" alt=\"Share on Reddit\" /></a></div>";
-		$socialm .= "<div style=\"margin-top: 5px;\"><a href=\"http://www.stumbleupon.com/submit?url=http://neighbr.net/view/" . $post['id'] . "&title=" . $post['title'] . "\" title=\"Share on StumbleUpon\" target=\"_blank\"><img src=\"./img/icons/stumble.png\" alt=\"Share on StumbleUpon\" /></a></div>";
-		$socialm .= "<div style=\"margin-top: 5px;\"><a href=\"http://twitter.com/home/?status=" . $post['title'] . " - http://neighbr.net/view/" . $post['id'] . "\" title=\"Share on Twitter\" target=\"_blank\"><img src=\"./img/icons/twitter.png\" alt=\"Share on Twitter\" /></a></div>";
+		$socialm .= "<div style=\"margin-top: 5px;\"><a href=\"http://www.facebook.com/sharer.php?u=http://yoursite.com/view/" . $post['id'] . "/" . str_replace(' ', '-', trim($post['title'])) . "&t=" . $post['title'] . "\" title=\"Share on Facebook\" target=\"_blank\"><img src=\"./img/icons/facebook.png\" alt=\"Share on Facebook\" /></a></div>";
+		$socialm .= "<div style=\"margin-top: 5px;\"><a href=\"http://www.reddit.com/submit?url=http://yoursite.com/view/" . $post['id'] . "&title=" . $post['title'] . "\" title=\"Share on Reddit\" target=\"_blank\"><img src=\"./img/icons/reddit.png\" alt=\"Share on Reddit\" /></a></div>";
+		$socialm .= "<div style=\"margin-top: 5px;\"><a href=\"http://www.stumbleupon.com/submit?url=http://yoursite.com/view/" . $post['id'] . "&title=" . $post['title'] . "\" title=\"Share on StumbleUpon\" target=\"_blank\"><img src=\"./img/icons/stumble.png\" alt=\"Share on StumbleUpon\" /></a></div>";
+		$socialm .= "<div style=\"margin-top: 5px;\"><a href=\"http://twitter.com/home/?status=" . $post['title'] . " - http://yoursite.com/view/" . $post['id'] . "\" title=\"Share on Twitter\" target=\"_blank\"><img src=\"./img/icons/twitter.png\" alt=\"Share on Twitter\" /></a></div>";
 		$socialm .= "</div>";
 		if(isset($_SESSION['username'])) {
 			

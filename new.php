@@ -25,7 +25,7 @@
 <?php
 
 	if(isset($_GET['pg'])) {
-		if(!is_numeric($_GET['pg'])) { header("Location: http://yoursite.com/"); }
+		if(!is_numeric($_GET['pg'])) { header("Location: {$_SERVER['HTTP_HOST']}"); }
 		$pg = $_GET['pg'];
 	} else {
 		$pg = 1;
