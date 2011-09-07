@@ -25,7 +25,7 @@
 <?php
 
 	if(isset($_GET['pg'])) {
-		if(!is_numeric($_GET['pg'])) { header("Location: http://neighbr.net/"); }
+		if(!is_numeric($_GET['pg'])) { header("Location: http://yoursite.com/"); }
 		$pg = $_GET['pg'];
 	} else {
 		$pg = 1;
@@ -51,17 +51,17 @@
 	if($pg==1) {
 		$pages .= '<div class="pages">&laquo;</div><div class="pages">&lsaquo;</div>';
 	} else {
-		$pages .= "<div class=\"pages\"><a href=\"http://neighbr.net/\">&laquo;</a></div>";
+		$pages .= "<div class=\"pages\"><a href=\"http://yoursite.com/\">&laquo;</a></div>";
 		$prevpage=$pg-1;
-		$pages .= "<div class=\"pages\"><a href=\"http://neighbr.net/$prevpage\">&lsaquo;</a></div>";
+		$pages .= "<div class=\"pages\"><a href=\"http://yoursite.com/$prevpage\">&lsaquo;</a></div>";
 	}
 	$pages .= '<div class="pages">' . $pg . '</div>';
 	if($pg==$lastpage) {
 		$pages .= '<div class="pages">&rsaquo;</div><div class="pages">&raquo;</div>';
 	} else {
 		$nextpage = $pg+1;
-		$pages .= "<div class=\"pages\"><a href=\"http://neighbr.net/$nextpage\">&rsaquo;</a></div>";
-		$pages .= "<div class=\"pages\"><a href=\"http://neighbr.net/$lastpage\">&raquo;</a></div>";
+		$pages .= "<div class=\"pages\"><a href=\"http://yoursite.com/$nextpage\">&rsaquo;</a></div>";
+		$pages .= "<div class=\"pages\"><a href=\"http://yoursite.com/$lastpage\">&raquo;</a></div>";
 	}
 
 	$sql = "SELECT id, neighbr, type, source, title, note FROM posts WHERE objectionable = 0 ORDER BY id DESC" . $limit;

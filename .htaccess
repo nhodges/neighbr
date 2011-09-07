@@ -2,8 +2,8 @@ Options +FollowSymLinks
 Options +Indexes
 RewriteEngine On  
 RewriteBase /  
-RewriteCond %{HTTP_HOST} !^neighbr.net$ [NC]
-RewriteRule ^(.*)$ http://neighbr.net/$1 [L,R=301]
+RewriteCond %{HTTP_HOST} !^yoursite.com$ [NC]
+RewriteRule ^(.*)$ http://yoursite.com/$1 [L,R=301]
 RewriteRule ^(.*)/$ neighbr.php?neighbr=$1 [L]
 RewriteRule ^([0-9]+)$ index.php?pg=$1 [L]
 RewriteRule ^share/(.*)$ share.php?type=$1 [L]
