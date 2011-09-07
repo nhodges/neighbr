@@ -9,12 +9,12 @@
 	if(!isset($_GET['user'])) {
 		$title = "Neighbrhood Report";
 		$sql = "SELECT * FROM posts WHERE objectionable = 0 ORDER BY id DESC LIMIT 0,20";
-		$url = "http://neighbr.net/feed";
+		$url = "http://yoursite.com/feed";
 	} else {
 		$neighbr = sanitize($_GET['user']);
 		$title = "Neighbrhood Report: $neighbr";
 		$sql = "SELECT * FROM posts WHERE objectionable = 0 AND neighbr = '$neighbr' ORDER BY id DESC LIMIT 0,20";
-		$url = "http://neighbr.net/$neighbr/feed";
+		$url = "http://yoursite.com/$neighbr/feed";
 	}
 
 	$result = $db->query($sql);
@@ -35,9 +35,9 @@
 		echo "\t<item>\r\n";
 		echo "\t\t<neighbr>$post[neighbr]</neighbr>\r\n";
 		if(file_exists("./img/avatars/$post[neighbr].jpg")) {
-			$avatar = "http://neighbr.net/img/avatars/$post[neighbr].jpg";
+			$avatar = "http://yoursite.com/img/avatars/$post[neighbr].jpg";
 		} else {
-			$avatar = "http://neighbr.net/img/avatars/neighbrhood.jpg";
+			$avatar = "http://yoursite.com/img/avatars/neighbrhood.jpg";
 		}
 		echo "\t\t<avatar>$avatar</avatar>\r\n";
 		echo "\t\t<title>" . str_replace("&", "&amp;", $post[title]) . "</title>\r\n";
@@ -55,8 +55,8 @@
 				echo "";
 		}
 		echo "\t\t<pubDate>$pubDate</pubDate>\r\n";
-		echo "\t\t<guid>http://neighbr.net/view/$post[id]</guid>\r\n";
-		echo "\t\t<link>http://neighbr.net/view/$post[id]</link>\r\n";
+		echo "\t\t<guid>http://yoursite.com/view/$post[id]</guid>\r\n";
+		echo "\t\t<link>http://yoursite.com/view/$post[id]</link>\r\n";
 		echo "\t</item>\r\n";
 	}
 

@@ -13,7 +13,7 @@
 
 	while($post = $db->grab($result)) {
 		$timestamp = "<div style=\"float: right;\">" . date("M d Y", strtotime($post['timestamp'])) . "</div>";
-		$pagetitle = $post['title'] . " / " . $post['neighbr'] . " / neighbr.net";
+		$pagetitle = $post['title'] . " / " . $post['neighbr'] . " / yoursite.com";
 		$posttitle = $post['title'];
 		if(!isset($_GET['title'])) {
 			header('Location: /view/' . $id . '/' . str_replace(' ', '-', trim($post['title']))); exit;
@@ -31,10 +31,10 @@
 
 	$socialm  = "";
 	$socialm .= "<div style=\"text-align: right; margin-top: 10px;\">";
-	$socialm .= "<div style=\"margin-top: 5px;\"><a href=\"http://www.facebook.com/sharer.php?u=http://neighbr.net/view/" . $id . "/" . str_replace(' ', '-', trim($posttitle)) . "&t=" . $posttitle . "\" title=\"Share on Facebook\" target=\"_blank\"><img src=\"./img/icons/facebook.png\" alt=\"Share on Facebook\" /></a></div>";
-	$socialm .= "<div style=\"margin-top: 5px;\"><a href=\"http://www.reddit.com/submit?url=http://neighbr.net/view/" . $id . "&title=" . $posttitle . "\" title=\"Share on Reddit\" target=\"_blank\"><img src=\"./img/icons/reddit.png\" alt=\"Share on Reddit\" /></a></div>";
-	$socialm .= "<div style=\"margin-top: 5px;\"><a href=\"http://www.stumbleupon.com/submit?url=http://neighbr.net/view/" . $id . "&title=" . $posttitle . "\" title=\"Share on StumbleUpon\" target=\"_blank\"><img src=\"./img/icons/stumble.png\" alt=\"Share on StumbleUpon\" /></a></div>";
-	$socialm .= "<div style=\"margin-top: 5px;\"><a href=\"http://twitter.com/home/?status=" . $posttitle . " - http://neighbr.net/view/" . $id . "\" title=\"Share on Twitter\" target=\"_blank\"><img src=\"./img/icons/twitter.png\" alt=\"Share on Twitter\" /></a></div>";
+	$socialm .= "<div style=\"margin-top: 5px;\"><a href=\"http://www.facebook.com/sharer.php?u=http://yoursite.com/view/" . $id . "/" . str_replace(' ', '-', trim($posttitle)) . "&t=" . $posttitle . "\" title=\"Share on Facebook\" target=\"_blank\"><img src=\"./img/icons/facebook.png\" alt=\"Share on Facebook\" /></a></div>";
+	$socialm .= "<div style=\"margin-top: 5px;\"><a href=\"http://www.reddit.com/submit?url=http://yoursite.com/view/" . $id . "&title=" . $posttitle . "\" title=\"Share on Reddit\" target=\"_blank\"><img src=\"./img/icons/reddit.png\" alt=\"Share on Reddit\" /></a></div>";
+	$socialm .= "<div style=\"margin-top: 5px;\"><a href=\"http://www.stumbleupon.com/submit?url=http://yoursite.com/view/" . $id . "&title=" . $posttitle . "\" title=\"Share on StumbleUpon\" target=\"_blank\"><img src=\"./img/icons/stumble.png\" alt=\"Share on StumbleUpon\" /></a></div>";
+	$socialm .= "<div style=\"margin-top: 5px;\"><a href=\"http://twitter.com/home/?status=" . $posttitle . " - http://yoursite.com/view/" . $id . "\" title=\"Share on Twitter\" target=\"_blank\"><img src=\"./img/icons/twitter.png\" alt=\"Share on Twitter\" /></a></div>";
 	$socialm .= "</div>";
 
 	$rssurl = "/$neighbr/feed";
@@ -61,7 +61,7 @@
 				$image = "<img src=\"$link\" alt=\"$posttitle\" />";
 			}
 
-			echo "\t\t\t<div style=\"float: left; width: 50px;\"><a href=\"http://neighbr.net/$neighbr/\">$avatar</a>$socialm</div>\r\n";
+			echo "\t\t\t<div style=\"float: left; width: 50px;\"><a href=\"http://yoursite.com/$neighbr/\">$avatar</a>$socialm</div>\r\n";
 			echo "\t\t\t<div style=\"float: right; width: 500px;\">\r\n";
 			echo "\t\t\t<div>\r\n";
 			echo "\t\t\t\t<div class=\"post-header\"><div style=\"padding: 5px;\">$timestamp<a href=\"./view/$id/" . str_replace(' ', '-', trim($posttitle)) . "\" title=\"$posttitle\">$posttitle</a></div></div>\r\n";
@@ -85,7 +85,7 @@
 			echo "\t\t\t</div>\r\n";
 			echo "\t\t\t</div><div style=\"clear: both;\"></div><br />\r\n";
 		} elseif($type == 'code') {
-			echo "\t\t\t<div style=\"float: left; width: 50px;\"><a href=\"http://neighbr.net/$neighbr/\">$avatar</a>$socialm</div>\r\n";
+			echo "\t\t\t<div style=\"float: left; width: 50px;\"><a href=\"http://yoursite.com/$neighbr/\">$avatar</a>$socialm</div>\r\n";
 			echo "\t\t\t<div style=\"float: right; width: 500px;\">\r\n";
 			echo "\t\t\t<div>\r\n";
 			echo "\t\t\t\t<div class=\"post-header\"><div style=\"padding: 5px;\">$timestamp<a href=\"./view/$id/" . str_replace(' ', '-', trim($posttitle)) . "\" title=\"$posttitle\">$posttitle</a></div></div>\r\n";
@@ -96,7 +96,7 @@
 			echo "\t\t\t</div><div style=\"clear: both;\"></div><br />\r\n";
 		} elseif($type == 'link') {
 			$linkcolor = $colors[rand(0,4)];
-			echo "\t\t\t<div style=\"float: left; width: 50px;\"><a href=\"http://neighbr.net/$post[neighbr]/\">$avatar</a>$socialm</div>\r\n";
+			echo "\t\t\t<div style=\"float: left; width: 50px;\"><a href=\"http://yoursite.com/$post[neighbr]/\">$avatar</a>$socialm</div>\r\n";
 			echo "\t\t\t<div style=\"float: right; width: 500px;\">\r\n";
 			echo "\t\t\t<div>\r\n";
 			echo "\t\t\t\t<div class=\"post-header\"><div style=\"padding: 5px;\">$timestamp<a href=\"./view/$id/" . str_replace(' ', '-', trim($posttitle)) . "\" title=\"$posttitle\">$posttitle</a></div></div>\r\n";
@@ -105,7 +105,7 @@
 			echo "\t\t\t</div><div style=\"clear: both;\"></div><br />\r\n";
 		} else {
 			$text = nl2br($note);
-			echo "\t\t\t<div style=\"float: left; width: 50px;\"><a href=\"http://neighbr.net/$neighbr/\">$avatar</a>$socialm</div>\r\n";
+			echo "\t\t\t<div style=\"float: left; width: 50px;\"><a href=\"http://yoursite.com/$neighbr/\">$avatar</a>$socialm</div>\r\n";
 			echo "\t\t\t<div style=\"float: right; width: 500px;\">\r\n";
 			echo "\t\t\t<div>\r\n";
 			echo "\t\t\t\t<div class=\"post-header\"><div style=\"padding: 5px;\">$timestamp<a href=\"./view/$id/" . str_replace(' ', '-', trim($posttitle)) . "\" title=\"$posttitle\">$posttitle</a></div></div>\r\n";
@@ -129,7 +129,7 @@
 				}
 				$timestamp = "<div style=\"float: right;\">" . date("M d Y", strtotime($comment['timestamp'])) . "</div>";
 				$text = nl2br($note);
-				echo "\t\t\t<div style=\"float: left; width: 50px;\"><a href=\"http://neighbr.net/$comment[neighbr]/\">$avatar</a></div>\r\n";
+				echo "\t\t\t<div style=\"float: left; width: 50px;\"><a href=\"http://yoursite.com/$comment[neighbr]/\">$avatar</a></div>\r\n";
 				echo "\t\t\t<div style=\"float: right; width: 500px;\">\r\n";
 				echo "\t\t\t<div>\r\n";
 				echo "\t\t\t\t<div class=\"post-header\"><div style=\"padding: 5px;\">$timestamp$comment[title]</div></div>\r\n";

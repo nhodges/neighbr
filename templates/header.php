@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 	<title><?php if(isset($pagetitle)) { echo $pagetitle; } else { echo "Won't you be my neighbr?"; } ?></title>
-	<base href="http://neighbr.net/" />
+	<base href="http://yoursite.com/" />
 	<meta property="og:title" content="<?php echo $posttitle; ?>" />
 	<meta property="og:description" content="<?php echo $note; ?>" />
 <?php if($type == 'image') { ?>
@@ -34,7 +34,7 @@
 		<div style="padding: 20px; font-size: 12px;">
 			<?php echo $avatar; ?>
 			<div>Welcome back to the neighbrhood,</div>
-			<div style="font-size: 18px; font-weight: bold;"><a href="http://neighbr.net/<?php echo $_SESSION['username']; ?>/"><?php echo $_SESSION['username']; ?></a></div>
+			<div style="font-size: 18px; font-weight: bold;"><a href="http://yoursite.com/<?php echo $_SESSION['username']; ?>/"><?php echo $_SESSION['username']; ?></a></div>
 		</div>
 		<div id="share">
 			<table width="100%" cellspacing="0" cellpadding="0" border="0">
@@ -171,7 +171,7 @@
 			<div style="padding: 5px;">Howdy, neighbr!</div>
 		</div>
 		<div style="float: right; width: 50%; text-align: right;">
-			<div style="padding: 5px;"><a href="javascript:hideContainer('register');showContainer('login', 27);">Log In</a> &bull; <a href="javascript:showContainer('register', 84);hideContainer('login');">Register</a> &bull; <a href="http://neighbr.net/">NEIGHBR</a></div>
+			<div style="padding: 5px;"><a href="javascript:hideContainer('register');showContainer('login', 27);">Log In</a> &bull; <a href="javascript:showContainer('register', 84);hideContainer('login');">Register</a> &bull; <a href="http://yoursite.com/">NEIGHBR</a></div>
 		</div>
 		<div style="clear: both;"></div>
 <?php } ?>

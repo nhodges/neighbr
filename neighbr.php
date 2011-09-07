@@ -8,7 +8,7 @@
 
 	$neighbr = $_GET['neighbr'];
 
-	$pagetitle = "$neighbr / neighbr.net";
+	$pagetitle = "$neighbr / yoursite.com";
 	$rssurl = "/$neighbr/feed";
 
 	$sql = "SELECT friends FROM users WHERE username = '$neighbr'";
@@ -17,7 +17,7 @@
 	if(mysql_num_rows($result) != 0) {
 		$friends = explode(",", mysql_result($result, 0));
 	} else {
-		header("Location: http://neighbr.net/");
+		header("Location: http://yoursite.com/");
 	}
 
 	include "./templates/header.php";
